@@ -28,7 +28,7 @@ const transactionFieldOrder: string[] = [
   'payment_notification_status',
   'payment_notification_channel',
 ]
-// TODO: Should only be keys of `Transaction`
+// TODO: Should only be keys of `CustomerInfo`
 const customerInfoFieldOrder: string[] = [
   'fname',
   'lname',

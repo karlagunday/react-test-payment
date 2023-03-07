@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
+import { transactionData } from './data/transactionData';
+import { useTransaction } from './hooks/useTransaction';
 
 function App() {
+  const {
+    create,
+    loading,
+    response,
+  } = useTransaction();
+
+
+  const handleClick = () => {
+    create(transactionData)
+  }
+
+  // TODO: Refactor to not use `useEffect`
+  useEffect(() => {
+    if(!!response?.redirect_url) {
+      window.location.replace(response.redirect_url)
+    }
+  }, [response])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleClick}>Test</button>
+      {loading && (<p>Loading...</p>)}
     </div>
   );
 }

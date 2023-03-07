@@ -25,7 +25,7 @@ export class Auth {
         merchantId: Auth.MERCHANT_ID,
         mKey: Auth.MKEY
       },
-      ['merchantId', ...keys,]
+      ['merchantId', ...keys]
     )
   }
 }

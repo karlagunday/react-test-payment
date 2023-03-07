@@ -18,6 +18,7 @@ export class Auth {
     return enc.Hex.stringify(SHA512(raw));
   }
 
+  // TODO: Build abstraction layer to handle this
   static signWithMerchantId = (payload: Record<string, any>, keys: string[]) => {
     return Auth.sign(
       {
